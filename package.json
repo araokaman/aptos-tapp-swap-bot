@@ -1,0 +1,23 @@
+{
+  "name": "aptos-tapp-swap-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@aptos-labs/ts-sdk": "^5.2.0",
+    "@tapp-exchange/sdk": "^0.7.2",
+    "dotenv": "^17.2.3"
+  }
+}

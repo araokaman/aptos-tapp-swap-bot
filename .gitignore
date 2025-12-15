@@ -1,0 +1,9 @@
+# 環境変数ファイル
+.env
+
+# Node.js 関連
+/node_modules
+
+# ビルド成果物 (TypeScriptの場合)
+/dist
+/build
