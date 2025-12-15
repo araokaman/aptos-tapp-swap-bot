@@ -4,7 +4,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "start": "node --loader ts-node/esm swap_executor.ts",
+  "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
   "dependencies": {
     "@aptos-labs/ts-sdk": "^5.2.0",
     "@tapp-exchange/sdk": "^0.7.2",
+    "axios": "^1.13.2",
     "dotenv": "^17.2.3"
   }
 }

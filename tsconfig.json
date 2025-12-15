@@ -9,7 +9,6 @@
     // See also https://aka.ms/tsconfig/module
     "module": "nodenext",
     "target": "esnext",
-    "types": [],
     // For nodejs:
     // "lib": ["esnext"], // Node.js環境では esnext が適切です
     "types": ["node"], // Node.js環境の型定義を含める

@@ -13,15 +13,32 @@ const LINE_NOTIFY_TOKEN = process.env.LINE_NOTIFY_TOKEN;
  * @param message 送信するテキストメッセージ
  */
 export async function sendNotification(message: string): Promise<void> {
+    // 🚨 既存ロジック: IDが 0 の場合はスキップ
     if (NOTIFICATION_SERVICE_ID === 0) {
-        console.warn("通知サービスIDが設定されていません (NOTIFICATION_SERVICE=0)。スキップします。");
+        console.warn("通知サービスIDが設定されていません (NOTIFICATION_SERVICE_ID=0)。スキップします。");
         return;
     }
+
+    // 🚨 追加修正ロジック: IDが設定されていても、URLやキーがない場合はスキップ/警告
+    switch (NOTIFICATION_SERVICE_ID) {
+        case 1: // Discord
+            if (!DISCORD_WEBHOOK_URL) {
+                console.warn("🚨 Discord通知が有効ですが、DISCORD_WEBHOOK_URLが設定されていません。スキップします。");
+                return;
+            }
+            break;
+        case 2: // Telegram
+            // if (!TELEGRAM_API_KEY || !TELEGRAM_CHAT_ID) { ... スキップ/警告 ... }
+            break;
+        // ... 他のサービスについても同様のチェックを追加 ...
+    }
+
 
     try {
         switch (NOTIFICATION_SERVICE_ID) {
             case 1: // Discord
-                await sendDiscordNotification(message);
+                // この行が実行されるとき、DISCORD_WEBHOOK_URLは存在することが保証されている
+                await sendDiscordNotification(message); 
                 break;
             case 2: // Telegram
                 await sendTelegramNotification(message);
